@@ -278,7 +278,10 @@ docker compose "${COMPOSE_ARGS[@]}" up -d openclaw-gateway
 
 echo ""
 echo "Gateway running with host port mapping."
-echo "Access from tailnet devices via the host's tailnet IP."
+echo "Host ports are published to loopback only (127.0.0.1)."
+echo "To access the Gateway remotely, use SSH port forwarding:"
+echo "  ssh -N -L 18789:127.0.0.1:18789 user@server"
+echo "Then open: http://localhost:18789"
 echo "Config: $OPENCLAW_CONFIG_DIR"
 echo "Workspace: $OPENCLAW_WORKSPACE_DIR"
 echo "Token: $OPENCLAW_GATEWAY_TOKEN"
